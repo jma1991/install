@@ -39,3 +39,4 @@ alias conda=micromamba
 
 # Unset variables.
 unset NXF_VER
+
