@@ -33,6 +33,9 @@ export LC_ALL=C
 # This is used on macOS to turn off zsh warning.
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-# Alias conda and mamba to micromamba
+# Alias conda and mamba to micromamba.
 alias mamba=micromamba
 alias conda=micromamba
+
+# Unset variables.
+unset NXF_VER
