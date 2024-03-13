@@ -9,7 +9,7 @@ sudo apt-get update && sudo apt-get upgrade -y
 2. Install the required Linux libraries and Java.
 
 ```sh
-sudo apt install -y bzip2
+sudo apt install -y bzip2 default-jdk default-jdk
 ```
 
 3. Change directory to install directory.
