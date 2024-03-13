@@ -1,5 +1,5 @@
 #
-# Biostar Handbook system bootstrap.
+# Excelra Handbook system bootstrap.
 #
 
 # Check that the script runs using bash
@@ -23,19 +23,19 @@ fi
 set -ue
 
 echo "#"
-echo "# Welcome to the Biostar Handbook!"
+echo "# Welcome to the Excelra Handbook!"
 echo "#"
-echo "# Web: https://www.biostarhandbook.com/"
+echo "# Web: https://www.excelra.com/"
 echo "#"
 echo "# Setting up bioinformatics tools."
 echo "#"
 
-# Check if the current directory is the home directory
-if [ "$PWD" != "$HOME" ]; then
-  echo "#"
-  echo "# WARNING! The program should be run from your HOME directory!"
-  echo "#"
-fi
+# # Check if the current directory is the home directory
+# if [ "$PWD" != "$HOME" ]; then
+#   echo "#"
+#   echo "# WARNING! The program should be run from your HOME directory!"
+#   echo "#"
+# fi
 
 # Bioinformatics tool environment name.
 ENV_BIOINFO=bioinfo
@@ -50,7 +50,7 @@ ROOT=~/micromamba
 PY_VER=3.10
 
 # Conda specification file
-CONDA_SPEC=~/.biostar.conda.txt
+CONDA_SPEC=~/.excelra.conda.txt
 
 # Make the bin directory.
 mkdir -p ~/bin
@@ -66,7 +66,7 @@ else
 fi
 
 # Download the latest version.
-curl -Lks ${URL} | tar -xj bin/micromamba
+curl -Lks ${URL} | tar -xj ~/bin/micromamba
 
 echo "# 2. Configuring micromamba channels"
 echo "#"
@@ -85,15 +85,15 @@ echo "#"
 ~/bin/micromamba shell init -s bash -p ${ROOT} -q
 
 # Download the environment setup file.
-curl -s http://data.biostarhandbook.com/install/biostar.sh > ~/.biostar.sh
+cat excelra.sh > ~/.excelra.sh
 
 # Ensure that the .bashrc file exists.
 touch ~/.bashrc
 
 # Append to bashrc if necessary.
-if ! grep -q ".biostar.sh" ~/.bashrc; then
+if ! grep -q ".excelra.sh" ~/.bashrc; then
   echo "" >> ~/.bashrc
-  echo "source ~/.biostar.sh" >> ~/.bashrc
+  echo "source ~/.excelra.sh" >> ~/.bashrc
   echo "" >> ~/.bashrc
 fi
 
@@ -114,12 +114,12 @@ if [ ! -d "$ROOT/envs/$ENV_BIOINFO" ]; then
   ~/bin/micromamba create -q -r ${ROOT} -n $ENV_BIOINFO -y python=${PY_VER}
 fi
 
-# Install the software for the biostar handbook.
+# Install the software for the excelra handbook.
 echo "# 5. Installing tools into ${ENV_BIOINFO}"
 echo "#"
 
 # Download the conda specification file.
-curl -s http://data.biostarhandbook.com/install/conda.txt > ${CONDA_SPEC}
+cat conda.txt > ${CONDA_SPEC}
 
 # Install the conda packages
 ~/bin/micromamba install -r ${ROOT} -n ${ENV_BIOINFO} -f ${CONDA_SPEC} -y -q
@@ -130,7 +130,7 @@ echo "#"
 
 # Install the doctor.py 
 mkdir -p ~/bin
-curl -s http://data.biostarhandbook.com/install/doctor.py > ~/bin/doctor.py
+cat doctor.py > ~/bin/doctor.py
 chmod +x ~/bin/doctor.py
 
 # Install the bio package.
@@ -145,7 +145,7 @@ yes no | sh -c "$(curl -fsSL ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/inst
 
 echo "# 9. Installing the SRA toolkit"
 echo "#"
-curl -s http://data.biostarhandbook.com/install/sratools.sh | bash
+cat sratools.sh | bash
 
 # Turn on strict error checking.
 set -eu
@@ -155,7 +155,7 @@ set -eu
 (mkdir -p ~/.parallel && touch ~/.parallel/will-cite)
 
 # Installation completed.
-echo "# The Biostar Handbook software installation has completed!"
+echo "# The Excelra Handbook software installation has completed!"
 echo "#"
 echo "# Restart the terminal or type: source ~/.bash_profile"
 echo "#"
