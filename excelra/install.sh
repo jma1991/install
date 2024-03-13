@@ -38,19 +38,19 @@ ROOT=~/micromamba
 # Make the bin directory.
 mkdir -p ~/bin
 
-echo "# 2 Installing micromamba"
+echo "# 2. Installing micromamba"
 echo "#"
 
 # Select the download based on the platform.
 if [ "$(uname)" == "Darwin" ]; then
 	URL=https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
-	curl -Lks https://micro.mamba.pm/api/micromamba/osx-64/latest | tar -xj bin/micromamba
+	curl -Lks https://micro.mamba.pm/api/micromamba/osx-64/latest | tar -xj ~/bin/micromamba
 else
 	URL=https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-	curl -Lks https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xj bin/micromamba
+	curl -Lks https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xj ~/bin/micromamba
 fi
 
-echo "# 3 Configuring micromamba channels"
+echo "# 3. Configuring micromamba channels"
 echo "#"
 # Append the channels.
 ~/bin/micromamba config prepend channels conda-forge
@@ -59,7 +59,7 @@ echo "#"
 # Set strict channel priority.
 ~/bin/micromamba config set channel_priority strict
 
-echo "# 4 Configuring the shell"
+echo "# 4. Configuring the shell"
 echo "#"
 
 # Initialize the shell
@@ -90,18 +90,18 @@ fi
 
 # Check that the conda environment exists
 if [ ! -d "$ROOT/envs/$ENV_BIOINFO" ]; then
-  echo "# 5 Creating the ${ENV_BIOINFO} environment"
+  echo "# 5. Creating the ${ENV_BIOINFO} environment"
   echo "#"
   ~/bin/micromamba create -q -r ${ROOT} -n $ENV_BIOINFO -y python=3.8
 fi
 
 # Install the software for the excelra handbook.
-echo "# 6 Installing tools into ${ENV_BIOINFO}"
+echo "# 6. Installing tools into ${ENV_BIOINFO}"
 echo "#"
 cat conda.txt | xargs ~/bin/micromamba install -r ${ROOT} -n ${ENV_BIOINFO} -y -q
 
 # Install the doctor
-echo "# 7 Installing doctor.py"
+echo "# 7. Installing doctor.py"
 echo "#"
 
 # Install the doctor.py 
@@ -110,16 +110,16 @@ cat doctor.py > ~/bin/doctor.py
 chmod +x ~/bin/doctor.py
 
 # Install the bio package.
-echo "# 8 Installing the bio package"
+echo "# 8. Installing the bio package"
 echo "#"
 ${ROOT}/envs/${ENV_BIOINFO}/bin/python -m pip install bio -q --upgrade
 
 # Install the Entrez toolkit
-echo "# 9 Installing Entrez Direct"
+echo "# 9. Installing Entrez Direct"
 echo "#"
 yes no | sh -c "$(curl -fsSL ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/install-edirect.sh)" > /dev/null
 
-echo "# 10 Installing the SRA toolkit"
+echo "# 10. Installing the SRA toolkit"
 echo "#"
 cat sratools.sh | bash
 
