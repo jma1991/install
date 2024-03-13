@@ -66,7 +66,7 @@ else
 fi
 
 # Download the latest version.
-curl -Lks ${URL} | tar -xj ~/bin/micromamba
+curl -Ls ${URL} | tar -xvj bin/micromamba && mv bin/micromamba ~/bin/ && rmdir bin/
 
 echo "# 2. Configuring micromamba channels"
 echo "#"
