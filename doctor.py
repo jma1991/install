@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Licensed under the Excelra Handbook license.
+# Licensed under the Biostar Handbook license.
 #
 from __future__ import print_function, unicode_literals
 
@@ -29,7 +29,7 @@ def more_recent(pattern, text):
 
 # A list of tools to check.
 TOOLS = [
-    'bwa', 'datamash', 'fastqc -h', 'hisat2', 'seqret -h',
+    'bwa', 'datamash', 'fastqc -h', 'hisat2', 
     'featureCounts', 'efetch', 'esearch', 'samtools', 'fastq-dump', 'bowtie2', 'bcftools',
     'seqtk', 'seqkit', 'bio', 'fastq-dump -X 1 -Z SRR1553591',
 ]
@@ -111,7 +111,7 @@ def health_check():
         print("#")
         print("# Unable to run: {}".format(words))
         print("#")
-        print("# Check the Excelra Handbook for installation help.")
+        print("# Check the Biostar Handbook for installation help.")
         print("#")
     else:
         print("# You are doing well, Majesty!")

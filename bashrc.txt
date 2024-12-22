@@ -1,3 +1,5 @@
+# >>> BIOSTAR_HANDBOOK_START
+
 #
 # A minimal BASH profile.
 #
@@ -27,3 +29,5 @@ export LC_ALL=C
 
 # This is used on macOS to turn off zsh warning.
 export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# <<< BIOSTAR_HANDBOOK_END

@@ -11,7 +11,7 @@ datamash
 emboss
 fastp
 fastqc
-freebayes
+freebayes=1.3.6
 hisat2
 jq
 mafft

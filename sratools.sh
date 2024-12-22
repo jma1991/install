@@ -32,7 +32,7 @@ mkdir -p ${BIN}
 (cd ${BIN} && tar zxf ${SRA_TAR})
 
 # The bash profile
-PROFILE=~/.excelra.sh
+PROFILE=~/.biostar.sh
 
 # Alter the PATH if necessary.
 grep -qF ${SRA_NAME} ${PROFILE} || printf "# sratools install path\nexport PATH=~/bin/${SRA_NAME}/bin:\$PATH\n\n" >> ${PROFILE}
