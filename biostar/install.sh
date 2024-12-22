@@ -89,7 +89,7 @@ echo "#"
 ~/bin/micromamba shell init -s bash -r ${ROOT} -q
 
 # Download the environment setup file.
-curl -s http://data.biostarhandbook.com/install/biostar.sh > ~/.biostar.sh
+curl -s https://github.com/jma1991/install/blob/main/install/biostar.sh > ~/.biostar.sh
 
 # Ensure that the .bashrc file exists.
 touch ~/.bashrc
@@ -123,7 +123,7 @@ echo "# 5. Installing tools into ${ENV_BIOINFO}"
 echo "#"
 
 # Download the conda specification file.
-curl -s http://data.biostarhandbook.com/install/conda.txt > ${CONDA_SPEC}
+curl -s https://github.com/jma1991/install/blob/main/install/conda.txt > ${CONDA_SPEC}
 
 # Install the conda packages
 ~/bin/micromamba install -r ${ROOT} -n ${ENV_BIOINFO} -f ${CONDA_SPEC} -y -q
@@ -134,7 +134,7 @@ echo "#"
 
 # Install the doctor.py 
 mkdir -p ~/bin
-curl -s http://data.biostarhandbook.com/install/doctor.py > ~/bin/doctor.py
+curl -s https://github.com/jma1991/install/blob/main/install/doctor.py > ~/bin/doctor.py
 chmod +x ~/bin/doctor.py
 
 # Install the bio package.
@@ -149,7 +149,7 @@ yes no | sh -c "$(curl -fsSL ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/inst
 
 echo "# 9. Installing the SRA toolkit"
 echo "#"
-curl -s http://data.biostarhandbook.com/install/sratools.sh | bash
+curl -s https://github.com/jma1991/install/blob/main/install/sratools.sh | bash
 
 # Turn on strict error checking.
 set -eu
