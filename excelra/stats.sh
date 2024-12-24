@@ -34,7 +34,7 @@ fi
 # Install the software for the biostar handbook.
 echo "# Installing packages into ${ENV_STATS}"
 echo "#"
-curl -s http://data.biostarhandbook.com/install/stats.txt | xargs ~/bin/micromamba install -r ${ROOT} -n ${ENV_STATS} -y -q
+curl -s https://raw.githubusercontent.com/jma1991/install/refs/heads/main/excelra/stats.txt | xargs ~/bin/micromamba install -r ${ROOT} -n ${ENV_STATS} -y -q
 
 # Installation completed.
 echo "#"
